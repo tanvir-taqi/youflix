@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchMovies, selectMovies } from '../../features/movies/moviesSlice';
+import SingleMovieCard from './SingleMovieCard';
 
 const Home = () => {
     const movies = useAppSelector(selectMovies)
@@ -9,14 +10,18 @@ const Home = () => {
 
     useEffect(()=>{
         dispatch(fetchMovies())
-    },[dispatch]);
+    },[]);
+    console.log('====================================');
+    console.log(movies.movies);
+    console.log('====================================');
 
-    console.log('====================================');
-    console.log(movies);
-    console.log('====================================');
     return (
         <div>
-            Home
+            <div className='grid grid-cols-1 md:grid-cols-4 '>
+            {
+                movies?.movies.map((movie,i) => <SingleMovieCard key={i} movie={movie}></SingleMovieCard>)
+            }
+            </div>
         </div>
     );
 };
