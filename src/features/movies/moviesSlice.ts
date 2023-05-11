@@ -41,6 +41,7 @@ export const fetchMovies = createAsyncThunk<Movie[]>('movies/fetchMovies', async
     
     return movies.results;
   });
+  
 
 // export const fetchMoviesAsync = createAsyncThunk('movies/fetchMovies', async () => {
 //   const response = await fetchMovies();
@@ -58,7 +59,7 @@ export const moviesSlice = createSlice({
       })
       .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<Movie[]>) => {
         state.status = 'succeeded';
-        state.movies = [...state.movies, ...action.payload];
+        state.movies = [...action.payload];
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.status = 'failed';

@@ -1,0 +1,32 @@
+iframe {
+    height: 515px;
+  }
+
+  .watch-movie{
+    color: rgb(145, 1, 1);
+    position: relative;
+  }
+  .watch-movie::after{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 100%;
+    background: rgb(145, 1, 1);
+    transition: all 0.4s ease-in-out;
+  }
+  .watch-movie:hover {
+    color: red;
+
+  }
+  .watch-movie:hover::after{
+    left: 0;
+    background: #fff;
+  }
+@media only screen and (max-width: 768px) {
+    iframe {
+      height: 315px;
+    }
+  }
+  

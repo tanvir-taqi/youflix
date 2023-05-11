@@ -16,7 +16,7 @@ body {
 }
 /* Style the scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 /* Style the scrollbar track */
@@ -26,13 +26,13 @@ body {
 
 /* Style the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #f00;
   border-radius: 10px;
 }
 
 /* Style the scrollbar on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #fff;
 }
 
 code {
