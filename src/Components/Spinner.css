@@ -1,0 +1,66 @@
+.spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+
+.spinner {
+  position: relative;
+  height: 140px;
+  width: 140px;
+  background: red;
+  clip-path: polygon(
+    20% 0%,
+    80% 0%,
+    100% 20%,
+    0 21%,
+    80% 100%,
+    20% 100%,
+    0% 80%,
+    0% 20%
+  );
+  animation: spinnerShapeAnimation 0.3s ease-in-out infinite; 
+
+}
+
+@keyframes spinnerShapeAnimation {
+  0% {
+    clip-path: polygon(
+      20% 0%,
+      80% 0%,
+      100% 20%,
+      0 21%,
+      80% 100%,
+      20% 100%,
+      0% 80%,
+      0% 20%
+    );
+    transform: rotate(0deg);
+  }
+  50% {
+    clip-path: polygon(20% 0%, 69% 0, 100% 100%, 0 19%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+    transform: rotate(10deg);
+    
+  }
+  100% {
+    clip-path: polygon(
+      20% 0%,
+      80% 0%,
+      100% 20%,
+      0 21%,
+      80% 100%,
+      20% 100%,
+      0% 80%,
+      0% 20%
+    );
+    transform: rotate(0deg);
+  }
+}

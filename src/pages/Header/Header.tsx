@@ -24,7 +24,7 @@ const Header = () => {
                 <div className={`nav-menu flex  md:items-center flex-col md:flex-row   ${display ? 'flex' : 'hidden md:flex'}`} >
                     <div onClick={() => setDisplay(false)} className="nav-menu-link items-start flex flex-col md:flex-row py-12 md:py-1 ">
 
-                        <Link to='/' className='text-red-600'>Home</Link>                      
+                        {/* <Link to='/' className='text-red-600'>Home</Link>                       */}
 
                     </div>
 

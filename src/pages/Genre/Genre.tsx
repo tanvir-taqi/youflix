@@ -3,6 +3,8 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchGenres, genreSelector } from '../../features/genre/genreSlice';
 import { fetchGenreMovie, genreMovieSelector } from '../../features/genre/GenreMovieSlice';
 import SingleMovieCard from '../Home/SingleMovieCard';
+import './Genre.css'
+import Spinner from '../../Components/Spinner';
 
 interface GenreType{
     id:number
@@ -21,6 +23,10 @@ const Genre = () => {
         dispatch(fetchGenreMovie(id))
         
     }
+    const loading = genre.status === 'loading' || genreMovies.status === 'loading';
+    if (loading) {
+        return <Spinner></Spinner>
+    }
     return (
         <div>
             <div>
@@ -30,7 +36,7 @@ const Genre = () => {
             {
              genre?.genre?.map((gn:GenreType) => <button 
               key={gn?.id}
-              className='px-3 py-1 border border-red-800 rounded-2xl mx-4 my-2'
+              className='px-3 py-1 border border-red-800 rounded-2xl mx-4 my-2 genre-btn'
               onClick={()=>handleMoviefetchbyId(gn?.id)}
               >{gn?.name}</button>)   
             }

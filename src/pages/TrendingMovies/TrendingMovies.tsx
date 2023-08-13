@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchTrendingMovies, selectTrendingMovies } from '../../features/movies/trendingMoviesSlice';
 import SingleMovieCard from '../Home/SingleMovieCard';
+import Spinner from '../../Components/Spinner';
 
 const TrendingMovies = () => {
     const trendingMovies = useAppSelector(selectTrendingMovies)
@@ -10,6 +11,12 @@ const TrendingMovies = () => {
     useEffect(() => {
          dispatch(fetchTrendingMovies())
     },[dispatch]);
+
+     const loading =
+       trendingMovies.status === "loading" ;
+     if (loading) {
+       return <Spinner></Spinner>;
+     }
 
     return (
         <div>
